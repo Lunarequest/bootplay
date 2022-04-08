@@ -1,0 +1,7 @@
+[Unit]
+Description="Bootplay, Play random chimes on startup"
+Type=simple
+ExecStart=/usr/bin/bootplay
+
+[Install]
+WantedBy=multi-user.target
