@@ -11,7 +11,7 @@ fn pick_song() -> String {
         Err(_) => String::from("/etc/bootplay.d/"),
     };
 
-    let mut music: Vec<String> = fs::read_dir("...")
+    let mut music: Vec<String> = fs::read_dir(song_path)
         .unwrap()
         .filter_map(|e| e.ok())
         .map(|e| e.path().to_string_lossy().into_owned())
