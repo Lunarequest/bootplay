@@ -1,7 +1,11 @@
 [Unit]
 Description="Bootplay, Play random chimes on startup"
-Type=simple
+After=sys-devices-pci0000:00-0000:00:1b.0-sound-card0-controlC0.device
+Require=sound.target
+
+[Service]
+Type=oneshot
 ExecStart=/usr/bin/bootplay
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
