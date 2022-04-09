@@ -11,18 +11,11 @@ fn pick_song() -> String {
         Err(_) => String::from("/etc/bootplay.d/"),
     };
 
-    let mut music: Vec<String> = vec![];
-    for file in read_dir(&song_path).unwrap() {
-        match file {
-            Ok(file) => {
-                let path = file.path().to_string_lossy().into_owned();
-                let _ = &music.push(path);
-            }
-            Err(e) => {
-                eprintln!("{e}")
-            }
-        };
-    }
+    let mut music: Vec<String> = fs::read_dir("...")
+        .unwrap()
+        .filter_map(|e| e.ok())
+        .map(|e| e.path().to_string_lossy().into_owned())
+        .collect::<Vec<_>>();
 
     if music.is_empty() {
         eprintln!("Could not find any music");
