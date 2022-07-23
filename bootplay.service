@@ -1,6 +1,6 @@
 [Unit]
 Description="Bootplay, Play random chimes on startup"
-After=sys-devices-pci0000:00-0000:00:1b.0-sound-card0-controlC0.device
+After=sys-devices-pci0000:00-0000:00:03.0-sound-card0-controlC0.device
 Require=sound.target
 
 [Service]
